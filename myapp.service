@@ -1,0 +1,14 @@
+[Unit]
+Description=uWSGI instance to serve myapp
+After=network.target
+
+[Service]
+ExecStart=/home/debian/.local/bin/uwsgi --ini /home/debian/iot_course_project/myapp.ini
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target
+
